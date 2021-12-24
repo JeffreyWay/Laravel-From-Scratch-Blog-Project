@@ -19,10 +19,16 @@ php artisan db
 create database blog
 ```
 
-And run the initial migrations and seeders.
+Then run the initial migrations and seeders.
 
 ```
 php artisan migrate --seed
+```
+
+And create a symbolic link.
+
+```
+php artisan storage:link
 ```
 
 ## Further Ideas
