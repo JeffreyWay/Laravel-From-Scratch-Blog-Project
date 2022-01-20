@@ -24,7 +24,10 @@
                 <x-form.error name="category"/>
             </x-form.field>
 
-            <x-form.button>Publish</x-form.button>
+            <div class="flex">
+                <x-form.button outline="true" name="status" value="DRAFT">Save as Draft</x-form.button>&nbsp;
+                <x-form.button name="status" value="PUBLISHED">Publish</x-form.button>
+            </div>
         </form>
     </x-setting>
 </x-layout>

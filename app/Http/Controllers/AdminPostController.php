@@ -63,6 +63,7 @@ class AdminPostController extends Controller
             'thumbnail' => $post->exists ? ['image'] : ['required', 'image'],
             'slug' => ['required', Rule::unique('posts', 'slug')->ignore($post)],
             'excerpt' => 'required',
+            'status' => ['required', Rule::in(['DRAFT','PUBLISHED'])],
             'body' => 'required',
             'category_id' => ['required', Rule::exists('categories', 'id')]
         ]);
