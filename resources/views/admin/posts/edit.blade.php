@@ -33,6 +33,19 @@
                 <x-form.error name="category"/>
             </x-form.field>
 
+            <x-form.field>
+                <x-form.label name="status"/>
+
+                <select name="status" id="status" required>
+                    @foreach (["DRAFT", "PUBLISHED"] as $status)
+                        <option value="{{ $status }}"
+                        {{ old('status', $post->status) == $status ? 'selected' : '' }}
+                        >{{ ucfirst(strtolower($status)) }}</option>
+                    @endforeach
+                </select>
+                <x-form.error name="status"/>
+            </x-form.field>
+
             <x-form.button>Update</x-form.button>
         </form>
     </x-setting>

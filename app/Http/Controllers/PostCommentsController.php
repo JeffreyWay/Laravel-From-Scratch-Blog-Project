@@ -9,6 +9,8 @@ class PostCommentsController extends Controller
 {
     public function store(Post $post)
     {
+        abort_if($post->status != "PUBLISHED", 404);
+
         request()->validate([
             'body' => 'required'
         ]);

@@ -15,6 +15,9 @@
                                                         {{ $post->title }}
                                                     </a>
                                                 </div>
+                                                @if ($post->status == "DRAFT")
+                                                &nbsp;<span class="rounded bg-blue-700 text-white p-1">draft</span>
+                                                @endif
                                             </div>
                                         </td>
 
