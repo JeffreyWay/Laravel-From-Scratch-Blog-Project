@@ -1,3 +1,5 @@
+[![Deploy](https://www.devyzer.io/deploy/button.svg)](https://www.devyzer.io/silos/new?repo-url=https://github.com/devyzer/laravel-getting-started&source=git)
+
 # Laravel From Scratch Blog Demo Project
 
 http://laravelfromscratch.com
