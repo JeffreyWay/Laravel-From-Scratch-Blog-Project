@@ -20,8 +20,9 @@ class UserFactory extends Factory
      *
      * @return array
      */
-    public function definition()
+    public function definition(): array
     {
+        /** @noinspection SpellCheckingInspection */
         return [
             'name' => $this->faker->name(),
             'username' => $this->faker->unique()->userName(),
@@ -35,11 +36,12 @@ class UserFactory extends Factory
     /**
      * Indicate that the model's email address should be unverified.
      *
-     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     * @return Factory
+     * @noinspection PhpUnused
      */
-    public function unverified()
+    public function unverified(): Factory
     {
-        return $this->state(function (array $attributes) {
+        return $this->state(function () {
             return [
                 'email_verified_at' => null,
             ];
