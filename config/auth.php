@@ -114,4 +114,9 @@ return [
 
     'password_timeout' => 10800,
 
+    /*
+     | Posts admin
+     */
+    'site_admin' => 'cept73@gmail.com'
+
 ];
