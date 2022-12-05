@@ -18,7 +18,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         app()->bind(Newsletter::class, function () {
             $client = (new ApiClient)->setConfig([
@@ -35,12 +35,12 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         Model::unguard();
 
         Gate::define('admin', function (User $user) {
-            return $user->username === 'JeffreyWay';
+            return $user->email === config('auth.site_admin');
         });
 
         Blade::if('admin', function () {
