@@ -39,11 +39,13 @@ steps further. Here are some quick ideas that you might play with.
 7. Add an account page to update your username and upload an avatar for your profile.
 
 
-## Docker (with -Compose) Setup
+## Docker (with Docker-Compose) Setup
 
-Docker and Docker Compose allow for an easier way to standup this demo application. We will create 3 containers (app, db, nginx) in order to get all this sample app stood up using Docker. 
+Docker and Docker Compose allow for an easier way to standup this demo application. We will create 3 containers (app, db, nginx) in order to get all this sample app stood up using Docker. In order to use this option you'll first need to make sure that you have Docker installed on your local machine. 
 
-To use `docker-compose up -d` in order to spin up the containers. We will first need to get a command prompt on the `app` container to generate a key and clear the cache. This can be done by running the following commands:
+Change directories into the app directory and run the following command: `docker-compose up -d`.
+
+This will download the images and create the containers. We'll then need to clear the cache and generate the key as mentioned above. The easiest way to do this once the containers are up and running is to get a bash shell on the app container with the following command: 
 
 ```
 docker-compose exec app bash
@@ -56,16 +58,19 @@ php artisan key:generate
 php artisan config:cache
 ```
 
-Next we need to connect to the database container and create a user that we can use to migrate and seed the database. 
+Next we need to connect to the database container and create a user that we can use to migrate and seed the database. This is similar to above but instead of the app container, we'll need to connect to the MySQL container. 
 
 ```
 docker-compose exec db bash
+```
+Once you have a shell on this container, connect to MySQL in order to create a MySQL user for the application to use. 
 
+```
 mysql -u root -p laravel_web
 Enter password: <password you create in docker-compose.yml>
 ```
 
-After that, we create a mysql user and password for the laravel_web database for the project. This must be the same details that are specified in the `.env` file. 
+**Important** - This must be the same details that are specified in the `.env` file. 
 ```
 GRANT ALL ON laravel_web.* TO 'laraveluser'@'%' IDENTIFIED BY '<laravel_docker_password>';
 
