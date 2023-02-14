@@ -69,8 +69,13 @@
                         </form>
                     </x-dropdown>
                 @else
+                    <a href="/contact"
+                       class="text-xs font-bold uppercase {{ request()->is('contact') ? 'text-blue-500' : '' }}">
+                        Contact
+                    </a>
+
                     <a href="/register"
-                       class="text-xs font-bold uppercase {{ request()->is('register') ? 'text-blue-500' : '' }}">
+                       class="ml-6 text-xs font-bold uppercase {{ request()->is('register') ? 'text-blue-500' : '' }}">
                         Register
                     </a>
 
